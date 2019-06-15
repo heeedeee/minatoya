@@ -1,0 +1,47 @@
+<h1>商品詳細</h1>
+
+<div class="nav-justify-content-end"></div>
+  <%= link_to '商品一覧', products_path, class: 'nav-link' %>
+
+<table class="table.table.table-hover">
+  <tbody>
+    <tr>
+      <th><%= Product.human_attribute_name(:id) %>
+      <td><%= @product.id %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:name) %>
+      <td><%= @product.name %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:description) %>
+      <td><%= simple_format(h(@product.description), {}, sanitize: false, wrapper_tag: "div") %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:image) %>
+      <td><%= @product.image %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:price) %>
+      <td><%= @product.price %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:color) %>
+      <td><%= @product.color %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:scene) %>
+      <td><%= @product.scene %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:created_at) %>
+      <td><%= @product.created_at %>
+    </tr>
+    <tr>
+      <th><%= Product.human_attribute_name(:updated_at) %>
+      <td><%= @product.updated_at %>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '編集', edit_product_path, class: 'btn btn-primary mr-3' %>

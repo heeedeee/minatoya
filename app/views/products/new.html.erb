@@ -1,0 +1,37 @@
+<h1>商品の新規登録</h1>
+<div class="nav-justify-content-end"></div>
+  <%= link_to '商品一覧', products_path, class: 'nav-link' %>
+
+<%= form_with model: @product, local: true do |t| %>
+  <form class="form-inline">
+    <div class="form-group"></div>
+      <%= t.label :name %>
+      <%= t.text_field :name, class: 'form-control', id: 'product_name' %>
+
+    <div class="form-group"></div>
+      <%= t.label :description %>
+      <%= t.text_area :description, rows: 5, class: 'form-control', id: 'product_description' %>
+
+    <div class="form-group"></div>
+      <%= t.label :image %>
+      <%= t.text_field :image, class: 'form-control', id: 'product_image' %>
+
+    <div class="form-group"></div>
+      <%= t.label :price %>
+      <%= t.text_field :price, class: 'form-control', id: 'product_price' %>
+
+    <div class="form-group"></div>
+      <%= t.label :category %>
+      <%= t.text_field :category, class: 'form-control', id: 'product_category' %>
+
+    <div class="form-group"></div>
+      <%= t.label :color %>
+      <%= t.text_field :color, class: 'form-control', id: 'product_color' %>
+
+    <div class="form-group"></div>
+      <%= t.label :scene %>
+      <%= t.text_field :scene, class: 'form-control', id: 'product_scene' %>
+
+    <%= t.submit nil, class: 'btn btn-primary' %>
+
+  <% end %>

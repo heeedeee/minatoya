@@ -10,8 +10,11 @@
   </head>
 
   <body>
-    <div class="app-title.navbar.navbar-expand-md.navbar-light.bg-light.navbar-brand Product" ></div>
-    <div class="container"></div>
-    <%= yield %>
+    <div class="app-title.navbar.navbar-expand-md.navbar-light.bg-light"></div>
+      <div class="navbar-brand Product"></div>
+    <div class="container" ></div>
+      <% if flash.notice.present? %>
+        <div class="alert.alert-success= flash.notice"></div>
+      <%= yield %>
   </body>
 </html>
