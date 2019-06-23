@@ -1,0 +1,13 @@
+<h1>ログイン</h1>
+
+<%= form_with model: @product, local: true do |t| %>
+  <form class="form-inline">
+    <div class="form-group"></div>
+      <%= t.label :email, 'メールアドレス' %>
+      <%= t.text_field :email, class: 'form-control', id: 'session_email' %>
+
+    <div class="form-group"></div>
+      <%= t.label :password, 'パスワード' %>
+      <%= t.text_field :password, class: 'form-control', id: 'session_password' %>
+
+    <%= t.submit nil, class: 'btn btn-primary' %>
