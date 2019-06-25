@@ -1,0 +1,31 @@
+<h1>商品一覧</h1>
+<%= link_to '新規登録', new_product_path, class: 'btn btn-primary' %> 
+
+<div class="mb-3"></div>
+<table class="table.table.table-hover">
+  <thead class="thead.thead-default">
+    <tr>
+      <th><%= Product.human_attribute_name(:name) %>
+      <th><%= Product.human_attribute_name(:image) %>
+      <th><%= Product.human_attribute_name(:category) %>
+      <th><%= Product.human_attribute_name(:created_at) %>
+      <th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product_path(product) %>
+        <td><%= product.image %>
+        <td><%= product.category %>
+        <td><%= product.created_at %>
+        <td>
+          <%= link_to '編集', edit_product_path(product), class: 'btn btn-primary mr-3' %>
+          <%= link_to '削除', product, method: :delate, date: { confirm: "タスク「#{product.name}」を削除しましす。よろしいですか？" }, class: 'btn btn-danger' %>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
