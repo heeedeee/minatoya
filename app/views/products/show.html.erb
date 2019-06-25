@@ -45,3 +45,4 @@
 </table>
 
 <%= link_to '編集', edit_product_path, class: 'btn btn-primary mr-3' %>
+<%= link_to '削除', product, method: :delate, date: { confirm: "タスク「#{product.name}」を削除しましす。よろしいですか？" }, class: 'btn btn-danger' %>
