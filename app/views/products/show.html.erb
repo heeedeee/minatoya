@@ -3,7 +3,7 @@
 <div class="nav-justify-content-end"></div>
   <%= link_to '商品一覧', products_path, class: 'nav-link' %>
 
-<table class="table.table.table-hover">
+<table class="table table table-hover">
   <tbody>
     <tr>
       <th><%= Product.human_attribute_name(:id) %>
@@ -45,4 +45,4 @@
 </table>
 
 <%= link_to '編集', edit_product_path, class: 'btn btn-primary mr-3' %>
-<%= link_to '削除', product, method: :delate, date: { confirm: "タスク「#{product.name}」を削除しましす。よろしいですか？" }, class: 'btn btn-danger' %>
+<%= link_to '削除', @product, method: :delete, data: { confirm: "商品「#{@product.name}」を削除しましす。よろしいですか？" }, class: 'btn btn-danger' %>
