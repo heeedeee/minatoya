@@ -1,6 +1,18 @@
 class Admin::UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.find[params:id]
+  end
+
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find[params:id]
   end
 
   def create
@@ -13,18 +25,25 @@ class Admin::UsersController < ApplicationController
     end 
   end
 
-  def edit
+  def update
+    @user = User.find[paramas:id]
+  
+    if @user.update(user_params)
+      redirect_to admin_user_path(@user), notice: "ユーザー　「#{@user.name}」を更新しました。"
+    else
+      render :new
+    end 
   end
 
-  def show
-  end
-
-  def index
+  def destory
+    @user = User.find[paramas:id]
+    @user.destory
+    redirect_to admin_user_url, notice: "ユーザー　「#{@user.name}」を削除しました。"
   end
 
   private
 
   def user_params
-    paramas.require(:user).permit(:name, :email, :admin, :password, :password_comfirmation)
+    paramas.require(:user).permit(:first_name, :last_name, :address, :tel, :email, :admin, :password, :password_comfirmation)
   end
 end
