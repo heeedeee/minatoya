@@ -1,49 +1,51 @@
 <h1>ユーザーの編集</h1>
 
 <div class="nav.justify-content-end">
-  <%= link_to 'ユーザ一覧', admin_users_path, class: 'nav-link' %>
+  <%= link_to 'ユーザ一一覧', admin_users_path, class: 'nav-link' %>
 </div>
 
-<%= form_with model: [admin, @user], local: true do |f| %>
+<%= form_with model: [:admin, @user], local: true do |f| %>
     <div class="form-group">
-      <%= t.label :first_name %>
-      <%= t.text_field :first_name, class: 'form-control', id: 'user_first_name' %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control', id: 'user_first_name' %>
     </div>
 
     <div class="form-group">
-      <%= t.label :last_name %>
-      <%= t.text_area :last_name, class: 'form-control', id: 'user_last_name' %>
+      <%= f.label :last_name %>
+      <%= f.text_area :last_name, class: 'form-control', id: 'user_last_name' %>
     </div>
 
     <div class="form-group">
-      <%= t.label :address %>
-      <%= t.text_field :address, class: 'form-control', id: 'user_address' %>
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control', id: 'user_address' %>
     </div>
 
     <div class="form-group">
-      <%= t.label :tel %>
-      <%= t.text_field :tel, class: 'form-control', id: 'user_tel' %>
+      <%= f.label :tel %>
+      <%= f.text_field :tel, class: 'form-control', id: 'user_tel' %>
     </div>
 
     <div class="form-group">
-      <%= t.label :email %>
-      <%= t.text_field :email, class: 'form-control', id: 'user_email' %>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control', id: 'user_email' %>
     </div>
 
-    <div class="form-check">
-      <%= t.label :admin, class: 'form-check-label' do %>
-        <%= t.check_box :admin, class: 'form-check-input' %>
+    <%# <div class="form-check">
+      <%= f.label :admin, class: 'form-check-label' do %>
+        <%= f.check_box :admin, class: 'form-check-input' %>
         | 管理者権限
+    </div> %>
+
+    <div class="form-group">
+      <%= f.label :password,  'パスワード' %>
+      <%= f.password_field :password, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= t.label :password %>
-      <%= t.password_field :password, class: 'form-control' %>
+      <%= f.label :password_confirmation, 'パスワード（確認）' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
 
-    <div class="form-group">
-      <%= t.label :password_confirmation, 'パスワード（確認）' %>
-      <%= t.password_field :password_confirmation, class: 'form-control' %>
-    </div>
+    <%= f.submit '登録する', class: 'btn btn-primary' %>
 
-    <%= t.submit '登録する', class: 'btn btn-primary' %>
+<% end %>

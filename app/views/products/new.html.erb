@@ -1,66 +1,7 @@
 <h1>商品の新規登録</h1>
+
 <div class="nav-justify-content-end">
   <%= link_to '商品一覧', products_path, class: 'nav-link' %>
 </div>
 
-<%= form_with model: @product, local: true do |t| %>
-
-    <div class="form-group col-md-6">
-      <%= t.label :name %>
-      <%= t.text_field :name, class: 'form-control', id: 'product_name' %>
-    </div>
-
-    <div class="form-group">
-      <%= t.label :description %>
-      <%= t.text_area :description, rows: 5, class: 'form-control', id: 'product_description' %>
-    </div>
-
-    <div class="form-group col-md-6">
-　    <%= t.label :image %>
-　    <div class="custom-file">
-　      <input type="file" class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">ファイル選択</label>
-　    </div>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= t.label :price %>
-      <%= t.text_field :price, class: 'form-control', id: 'product_price' %>
-    </div>
-
-    <div class="form-group col-md-6">
-　    <%= t.label :category %>
-      <select class="custom-select">
-        <option selected>選択メニュー</option>
-        <option value="1">卒業式袴</option>
-        <option value="2">振袖</option>
-        <option value="3">訪問着</option>
-      </select>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= t.label :color %>
-      <select class="custom-select">
-        <option selected>選択メニュー</option>
-        <option value="1">赤色</option>
-        <option value="2">青色</option>
-        <option value="3">黒色</option>
-        <option value="1">白色</option>
-        <option value="2">黄色</option>
-        <option value="3">水色</option>
-      </select>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= t.label :scene %>
-      <select class="custom-select">
-        <option selected>選択メニュー</option>
-        <option value="1">卒業式</option>
-        <option value="2">結婚式</option>
-        <option value="3">パーティー</option>
-      </select>
-    </div>
-
-    <%= t.submit nil, class: 'btn btn-primary' %>
-
-  <% end %>
+<%= render partial: 'form', locals: { product: @product } %>

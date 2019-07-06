@@ -12,9 +12,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_params)
-    product.save!
-    redirect_to products_url, notice: "商品「#{product.name}」を登録しました。" 
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to @product, notice: "商品「#{@product.name}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,9 +31,9 @@ class ProductsController < ApplicationController
     redirect_to products_url, notice: "商品「#{product.name}」を更新しました。"
   end
 
-  def destory
+  def destroy
     product = Product.find(params[:id])
-    product.destory
+    product.destroy
     redirect_to products_url, notice: "商品「#{product.name}」を削除しました。"
   end
 
