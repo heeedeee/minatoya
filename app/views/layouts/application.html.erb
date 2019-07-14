@@ -5,18 +5,30 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="app-title　navbar　navbar-expand-md　navbar-light　bg-light">
-      <div class="navbar-brand MINATOTA">
-      </div>
-    </div>
+    <nav class="app-title navbar navbar-expand-md navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">KIMONO みなとや</span>
+    
+      <ul class="nav">
+          <% if current_user%>
+            <li class="nav-item">
+              <a class="nav_link active" href= products_url>商品一覧</a>
+          　</li>
+            <li class="nav-item= link_to 'ユーザー一覧', admin_user_path, class: 'nav-link'"></li>
+            <li class="nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'"></li>
+          <% else %>
+            <li><div class="nav-item= link_to 'ログイン', login_path, class: 'nav-link'"></li>
+          <% end %>
+      </ul>
+    </nav>
+
     <div class="container" >
       <% if flash.notice.present? %>
-        <div class="alert.alert-success= flash.notice">
+        <div class="alert alert-success= flash.notice">
         </div>
       <% end %>
       <%= yield %>
