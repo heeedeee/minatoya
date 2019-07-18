@@ -20,9 +20,9 @@
       <%= t.text_area :description, class: 'form-control', id: 'product_description' %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="image">イメージ</label>
-      <input type="file" class="form-control" id="product_image">
+      <input type="file" class="form-control-file" id="product_image">
     </div>
 
     <div class="form-group col-md-6">
@@ -31,31 +31,18 @@
     </div>
 
     <div class="form-group col-md-6">
-　    <%= t.label :category %>
+      <%= t.label :category %>
       <%= t.select :category, [["卒業式袴", "1"], ["振袖", "2"], ["訪問着", "3"]], {:include_blank => "選択メニュー"} %>
     </div>
 
     <div class="form-group col-md-6">
       <%= t.label :color %>
-      <select class="custom-select">
-        <option selected>選択メニュー</option>
-        <option value="1">赤色</option>
-        <option value="2">青色</option>
-        <option value="3">黒色</option>
-        <option value="1">白色</option>
-        <option value="2">黄色</option>
-        <option value="3">水色</option>
-      </select>
+      <%= t.select :color, [["赤色","1"], ["青色","2"], ["黒色","3"], ["白色","4"], ["黄色","5"]], {:include_blank => "選択メニュー"} %>
     </div>
 
     <div class="form-group col-md-6">
       <%= t.label :scene %>
-      <select class="custom-select">
-        <option selected>選択メニュー</option>
-        <option value="1">卒業式</option>
-        <option value="2">結婚式</option>
-        <option value="3">パーティー</option>
-      </select>
+      <%= t.select :scene, [["卒業式","1"], ["結婚式","2"], ["パーティー","3"]], {:include_blank => "選択メニュー"} %>
     </div>
 
     <%= t.submit nil, class: 'btn btn-primary' %>
