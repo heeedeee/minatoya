@@ -1,7 +1,7 @@
 <h1>商品一覧</h1>
 <%= link_to '新規登録', new_product_path, class: 'btn btn-primary' %> 
 
-<div class="mb-3"></div>
+<div class="mb-3">
 <table class="table table table-hover">
   <thead class="thead thead-default">
     <tr>
@@ -12,6 +12,7 @@
       <th>
     </tr>
   </thead>
+</div>
 
   <tbody>
     <% @products.each do |product| %>
