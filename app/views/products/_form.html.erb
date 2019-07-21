@@ -1,0 +1,50 @@
+<% if product.errors.present? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: product, local: true do |t| %>
+
+    <div class="form-group col-md-6">
+      <%= t.label :name %>
+      <%= t.text_field :name, class: 'form-control', id: 'product_name' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= t.label :description %>
+      <%= t.text_area :description, class: 'form-control', id: 'product_description' %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="image">イメージ</label>
+      <input type="file" class="form-control-file" id="product_image">
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= t.label :price %>
+      <%= t.text_field :price, class: 'form-control', id: 'product_price' %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= t.label :category %>
+      <%= t.select :category, [["卒業式袴", "1"], ["振袖", "2"], ["訪問着", "3"]], {:include_blank => "選択メニュー"} %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= t.label :color %>
+      <%= t.select :color, [["赤色","1"], ["青色","2"], ["黒色","3"], ["白色","4"], ["黄色","5"]], {:include_blank => "選択メニュー"} %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= t.label :scene %>
+      <%= t.select :scene, [["卒業式","1"], ["結婚式","2"], ["パーティー","3"]], {:include_blank => "選択メニュー"} %>
+    </div>
+
+    <%= t.submit nil, class: 'btn btn-primary' %>
+
+  <% end %>

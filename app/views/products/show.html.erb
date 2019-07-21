@@ -1,7 +1,8 @@
 <h1>商品詳細</h1>
 
-<div class="nav-justify-content-end"></div>
+<div class="nav justify-content-end">
   <%= link_to '商品一覧', products_path, class: 'nav-link' %>
+</div>
 
 <table class="table table table-hover">
   <tbody>
@@ -9,6 +10,7 @@
       <th><%= Product.human_attribute_name(:id) %>
       <td><%= @product.id %>
     </tr>
+    
     <tr>
       <th><%= Product.human_attribute_name(:name) %>
       <td><%= @product.name %>
@@ -19,7 +21,7 @@
     </tr>
     <tr>
       <th><%= Product.human_attribute_name(:image) %>
-      <td><%= @product.image %>
+      <td><%= image_tag @product.image if @product.image.attached? %>
     </tr>
     <tr>
       <th><%= Product.human_attribute_name(:price) %>

@@ -2,8 +2,8 @@
 <%= link_to '新規登録', new_product_path, class: 'btn btn-primary' %> 
 
 <div class="mb-3">
-<table class="table.table.table-hover">
-  <thead class="thead.thead-default">
+<table class="table table table-hover">
+  <thead class="thead thead-default">
     <tr>
       <th><%= Product.human_attribute_name(:name) %>
       <th><%= Product.human_attribute_name(:image) %>
@@ -23,9 +23,9 @@
         <td><%= product.created_at %>
         <td>
           <%= link_to '編集', edit_product_path(product), class: 'btn btn-primary mr-3' %>
-          <%= link_to '削除', product, method: :delete, data: { confirm: "タスク「#{product.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
+          <%= link_to '削除', product, method: :delete, data: { confirm: "商品「#{product.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
       </tr>
-      <% end %>
+    <% end %>
   </tbody>
 </table>
 
