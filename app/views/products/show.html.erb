@@ -21,7 +21,7 @@
     </tr>
     <tr>
       <th><%= Product.human_attribute_name(:image) %>
-      <td><%= @product.image %>
+      <td><%= image_tag @product.image if @product.image.attached? %>
     </tr>
     <tr>
       <th><%= Product.human_attribute_name(:price) %>
