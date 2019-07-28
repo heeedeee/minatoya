@@ -21,8 +21,8 @@
     </div>
 
     <div class="form-group col-md-6">
-      <label for="image">イメージ</label>
-      <input type="file" class="form-control-file" id="product_image">
+      <%= t.label :image %>
+      <%= t.file_field :image, class: 'form-control-file', id: 'product_image' %>
     </div>
 
     <div class="form-group col-md-6">
@@ -32,17 +32,17 @@
 
     <div class="form-group col-md-6">
       <%= t.label :category %>
-      <%= t.select :category, [["卒業式袴", "1"], ["振袖", "2"], ["訪問着", "3"]], {:include_blank => "選択メニュー"} %>
+      <%= t.select :category, [["卒業式袴", :hakama], ["振袖", :furisode], ["訪問着", :houmongi]], {:include_blank => "選択メニュー"} %>
     </div>
 
     <div class="form-group col-md-6">
       <%= t.label :color %>
-      <%= t.select :color, [["赤色","1"], ["青色","2"], ["黒色","3"], ["白色","4"], ["黄色","5"]], {:include_blank => "選択メニュー"} %>
+      <%= t.select :color, [["赤色", :red], ["青色", :blue], ["黒色", :black], ["白色", :white], ["黄色", :yellow]], {:include_blank => "選択メニュー"} %>
     </div>
 
     <div class="form-group col-md-6">
       <%= t.label :scene %>
-      <%= t.select :scene, [["卒業式","1"], ["結婚式","2"], ["パーティー","3"]], {:include_blank => "選択メニュー"} %>
+      <%= t.select :scene, [["卒業式", :ceremony], ["結婚式", :wedding], ["パーティー",  :party]], {:include_blank => "選択メニュー"} %>
     </div>
 
     <%= t.submit nil, class: 'btn btn-primary' %>
