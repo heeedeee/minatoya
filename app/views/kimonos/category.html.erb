@@ -1,0 +1,18 @@
+<h1><% if @category == "hakama"
+     puts   </h1>
+<tr>
+  <th>Product.human_attribute_name(:image)</th>
+</tr>
+
+<tbody>
+  <% @product_items.each do |product| %>
+  
+  <p><%= product.name %>
+  </p>
+  <p><%= product.image %>
+  </p>
+  <p><%= product.price %>
+  </p>
+
+  <% end %>
+</tbody>

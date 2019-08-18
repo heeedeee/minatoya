@@ -1,2 +1,61 @@
-<h1>Kimonos#index</h1>
-<p>Find me in app/views/kimonos/index.html.erb</p>
+<h1>Kimono みなとや</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Product.human_attribute_name(:image)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hakamas.each do |product| %>
+
+        <section>
+          <h2><a href=""><img src="images/category1.jpg" alt=""></a>
+          </h2>
+          <div class="listphoto">
+            <!--★画像★-->
+            <a href=""><%= product.image %><img src="" alt="" class="picture" decoding="async" />
+            </a>
+          </div>
+          <div class="listrightbloc">
+            <a href="<%= product_path(product) %>">
+              <h3><%= product.name %></h3>
+              <span><%= product.price %></span>
+            </a>
+          </div>
+        </section>
+    <% end %>
+  </tbody>
+<table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product.human_attribute_name(:image)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @furisodes.each do |product| %>
+      <tr>
+        <td><%= product.image %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product.human_attribute_name(:image)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houmongis.each do |product| %>
+      <tr>
+        <td><%= product.image %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<table>
